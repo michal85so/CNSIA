@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: CNSIA-Catalog-Service
+
+server:
+  port: 9001
+  tomcat:
+    connection-timeout: 2s #ile czeka miedzy przyjsciem polaczenia i zajecie watku (TPR) a otrzymaniem requestu. to zeby nie bylo dos
+    keep-alive-timeout: 15s #do konca nie wiem
+    threads:
+      min-spare: 5 #min ilosc watkow ladowana na starcie
+      max: 50 #max ilesc watkow, defaulty sa spoko, potem sie to prostuje
