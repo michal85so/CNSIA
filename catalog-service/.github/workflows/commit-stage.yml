@@ -4,7 +4,7 @@ on: push
 jobs:
   build:
     name: Build and Test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       security-events: write
@@ -15,8 +15,8 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 17
-          cache: gradle
+          java-version: 25
+          cache: maven
       - name: Code vulnerability scanning
         uses: anchore/scan-action@v3
         id: scan
@@ -31,6 +31,4 @@ jobs:
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
       - name: Build, unit tests and integration tests
-        run: |
-          chmod +x gradlew
-          ./gradlew build
+        run: ./mvnw --batch-mode --no-transfer-progress verify
