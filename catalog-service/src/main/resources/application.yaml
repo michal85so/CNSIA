@@ -10,6 +10,3 @@ server:
     threads:
       min-spare: 5 #min ilosc watkow ladowana na starcie
       max: 50 #max ilesc watkow, defaulty sa spoko, potem sie to prostuje
-
-polar:
-  greeting: "Hello from CNSIA-Catalog-Service!"
